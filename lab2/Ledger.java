@@ -3,51 +3,52 @@ package lab2;
 
 
 /** 
- *   Bank defines for each user the balance at a given time
+ *   Ledger defines for each user the balance at a given time
      in the ledger model of bitcoins
+     and contains methods for checking and updating the ledger
+     including processing a transaction
  */
 
-public class Bank extends UserAmount{
+public class Ledger extends UserAmount{
 
 
     /** 
      *
-     *  Task 1: Fill in the method checkUserAmountDeductable()
+     *  Task 1: Fill in the method checkUserAmountDeductable
      *          You need to replace the dummy value true by the correct calculation
      *
-     * Check all items in userAmountCheck can be deducted from the current one
+     * Check all items in amountToCheckForDeduction can be deducted from the current one
      *
-     *   userAmountCheck is usually obtained
+     *   amountToCheckForDeduction is usually obtained
      *   from a list of inputs of a transaction
      *
      * Checking that a TransactionOutputList  can be deducted will be later done
      *  by first converting that TransactionOutputList into a
-     *  TreeMap<String, Integer> and then using this method
+     *  UserAmount and then using this method
      *
-     * A naive check would just check whether each entry of a TransactionOutputList can be 
-     *   deducted
+     * A naive check would just check whether each entry of a outputlist of a Transaction 
+     *   can be deducted
      *
      * But there could be an output for the same user Alice of say 10 units twice
      *   where there are not enough funds to deduct it twice but enough
      *   funds to deduct it once
-     * The naive check would succeed, but after converting the TransactionOutputList
-     *  to TreeMap<String, Integer> we have that for Alice 20 units have to be deducted
-     *  so the deduction of the bank created fails.
+     * The naive check would succeed, but after converting the ouput list of a Transaction
+     *  to UserAmount we obtain that for Alice 20 units have to be deducted
+     *  so the deduction of the UserAmount created fails.
      *
      * One could try for checking that one should actually deduct each entry in squence
      *   but then one has to backtrack again.
-     * Converting the TransactionOutputList into a TreeMap<String, Integer> 
-     *   is a better approach since the
-     *   TransactionOutputList is usually much smaller than the main Bank.
+     * Converting the TransactionOutputList into a UserAmount
+     *   is a better approach since the outputlist of a Transaction
+     *   is usually much smaller than the main Ledger.
      * 
      *
      */    
 
-
     public boolean checkUserAmountDeductable(UserAmount userAmountCheck){
 	// you need to replace then next line by the correct statement
 	return true;
-       };
+    };
 
 
     /** 
@@ -56,22 +57,23 @@ public class Bank extends UserAmount{
      *          You need to replace the dummy value true by the correct calculation
      *
      *  It checks that a list of txEntries (which will be inputs of a transactions)
-     *     can be deducted from Bank
+     *     can be deducted from Ledger
      *
-     *   done by first converting the list of txEntries into an bank
-     *     and then checking that the resulting bank can be deducted.
+     *   done by first converting the list of txEntries into a UserAmount
+     *     and then checking that the resulting UserAmount can be deducted.
      *   
      */    
 
-      public boolean checkTxEldeductable(EntryList txel){
+
+    public boolean checkTxEldeductable(EntryList txel){
 	// you need to replace then next line by the correct statement
 	return true;
-      };
+    };
 
     /** 
      *  Task 3: Fill in the methods subtractTxEl and  addTxEl.
      *
-     *   Subtract a list of txEntries (txel, usually transaction inputs) from the bank 
+     *   Subtract a list of txEntries (txel, usually transaction inputs) from the ledger 
      *
      *   requires that the list to be deducted is deductable.
      *   
@@ -79,21 +81,19 @@ public class Bank extends UserAmount{
     
 
     public void subtractTxEl(EntryList txel){
-	//  fill in Body
+	//  fill in Body	
     }
 
 
 
+
     /** 
-     * Add a list of txEntries (txel, usually transaction outputs) to the current bank
+     * Add a list of txEntries (txel, usually transaction outputs) to the current ledger
      *
      */    
 
     public void addTxEl(EntryList txel){
-	for (Entry entry : txel.toList()){
-	    addBalance(entry.getUser(),entry.getAmount());
-	}
-
+	// fill in Body
     }
 
 
@@ -104,13 +104,13 @@ public class Bank extends UserAmount{
      *
      * Check a transaction is valid:
      *    the sum of outputs is less than or equal the sum of inputs
-     *    and the inputs can be deducted from the bank.
+     *    and the inputs can be deducted from the ledger.
      *
      */    
-
+    
     public boolean checkTransactionValid(Transaction tx){
 	// you need to replace then next line by the correct statement
-	return true;
+	return true;	
     };
 
     /** 
@@ -125,8 +125,7 @@ public class Bank extends UserAmount{
     
 
     public void processTransaction(Transaction tx){
-	// fill in Body
-
+	// fill in Body	
     };
 
 
@@ -138,7 +137,7 @@ public class Bank extends UserAmount{
      */
     
     public static void test() {
-	// fill in Body
+	// fill in Body	
     }
     
     /** 
@@ -146,6 +145,6 @@ public class Bank extends UserAmount{
      */            
 
     public static void main(String[] args) {
-	Bank.test();	
+	Ledger.test();	
     }
 }

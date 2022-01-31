@@ -95,29 +95,6 @@ public class EntryList{
     };	
 
 
-    /** 
-      * when checking that a EntryList can be deducted
-      *   from  an accountbalance given as an element of Bank
-      *   it is not enough to check that each single item can be deducted
-      *   since for the same user several items might occur
-      *   
-      *   in order to check that the user amount list can be deducted
-      *    we first create an Bank which determines for each user the
-      *    sum of amounts to be deducted
-      *
-      *   then we can check whether each entry in the original bankBalance is
-      *     greater the sum of items for each user to be deducted
-      */
-    
-    public UserAmount toUserAmount(){
-	UserAmount result = new UserAmount();
-	for (Entry  entry : toList()){
-	    result.addBalance(entry.getUser(),entry.getAmount());
-	};
-	return result;
-    }
-
-
     /**   function  to print all items in the User Mmaount List
      *    in the form 
      *      word1  <user> word2 <amount>  
@@ -148,7 +125,7 @@ public class EntryList{
 	System.out.println(header);
 	print();
 	System.out.println("transformed to User Accounts:");
-	toUserAmount().print();
+	(new UserAmount(this)).print();
 	System.out.println("Sum of Amounts = " + toSum());	
 	System.out.println();	
     };

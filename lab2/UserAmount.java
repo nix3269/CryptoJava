@@ -33,6 +33,31 @@ public class UserAmount {
 	this.userAmountBase = userAmountBase;
     }
 
+    /**
+     * Constructor for creating UserAmount from an EntryList
+     * by adding for each entry the amount to the user.
+     * EntryList could have more than one entry for the same user
+     * in which case the amounts are added up
+     *
+     * This is used when when checking that a EntryList can be deducted
+     *   from  an accountbalance given as an element of Ledger
+     *    we first create using this constructor a UserAmount 
+     *    which determines for each user the sum of amounts to be deducted
+     *
+     *   then we can check whether each entry in the original ledger is
+     *     greater the sum of items for each user to be deducted
+     */
+
+
+
+    public UserAmount(EntryList entryList) {
+	this.userAmountBase = new TreeMap<String, Integer>();
+	for (Entry  entry : entryList.toList()){
+	    this.addBalance(entry.getUser(),entry.getAmount());
+	};
+    }    
+
+
     /** obtain the underlying Treemap from string to integers
      */   
     
@@ -126,7 +151,7 @@ public class UserAmount {
     }
 
     /** 
-     * Prints the current state of the bank. 
+     * Prints the UserAmount
      */
     
     public void print() {
@@ -154,7 +179,10 @@ public class UserAmount {
 	uAmount.print();
 	System.out.println("Subtract from Balance Bob 5");	
 	uAmount.subtractBalance("Bob",5);
-	uAmount.print();	
+	uAmount.print();
+	System.out.println("Creating Useramount from EntryList (Alice,10),(Alice,10),(Bob,5)");
+	EntryList entryList = new EntryList("Alice",10,"Alice",10,"Bob",5);
+	(new UserAmount(entryList)).print();
     }
 
     /** 
