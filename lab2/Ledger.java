@@ -56,10 +56,10 @@ public class Ledger extends UserAmount{
      *  Task 2: Fill in the method checkEntryListDeductable 
      *          You need to replace the dummy value true by the correct calculation
      *
-     *  It checks that a list of txEntries (which will be inputs of a transactions)
+     *  It checks that an EntryList (which will be inputs of a transactions)
      *     can be deducted from Ledger
      *
-     *   done by first converting the list of txEntries into a UserAmount
+     *   done by first converting the EntryList into a UserAmount
      *     and then checking that the resulting UserAmount can be deducted.
      *   
      */    
@@ -73,7 +73,7 @@ public class Ledger extends UserAmount{
     /** 
      *  Task 3: Fill in the methods subtractEntryList and  addEntryList.
      *
-     *   Subtract a list of txEntries (txel, usually transaction inputs) from the ledger 
+     *   Subtract an EntryList (txel, usually transaction inputs) from the ledger 
      *
      *   requires that the list to be deducted is deductable.
      *   
@@ -88,7 +88,7 @@ public class Ledger extends UserAmount{
 
 
     /** 
-     * Add a list of txEntries (txel, usually transaction outputs) to the current ledger
+     * Add a TxEntryList (txel, usually transaction outputs) to the current ledger
      *
      */    
 
