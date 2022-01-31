@@ -53,7 +53,7 @@ public class Ledger extends UserAmount{
 
     /** 
      *
-     *  Task 2: Fill in the method checkTxEldeductable 
+     *  Task 2: Fill in the method checkEntryListDeductable 
      *          You need to replace the dummy value true by the correct calculation
      *
      *  It checks that a list of txEntries (which will be inputs of a transactions)
@@ -65,13 +65,13 @@ public class Ledger extends UserAmount{
      */    
 
 
-    public boolean checkTxEldeductable(EntryList txel){
+    public boolean checkEntryListDeductable(EntryList txel){
 	// you need to replace then next line by the correct statement
 	return true;
     };
 
     /** 
-     *  Task 3: Fill in the methods subtractTxEl and  addTxEl.
+     *  Task 3: Fill in the methods subtractEntryList and  addEntryList.
      *
      *   Subtract a list of txEntries (txel, usually transaction inputs) from the ledger 
      *
@@ -80,7 +80,7 @@ public class Ledger extends UserAmount{
      */    
     
 
-    public void subtractTxEl(EntryList txel){
+    public void subtractEntryList(EntryList txel){
 	//  fill in Body	
     }
 
@@ -92,7 +92,7 @@ public class Ledger extends UserAmount{
      *
      */    
 
-    public void addTxEl(EntryList txel){
+    public void addEntryList(EntryList txel){
 	// fill in Body
     }
 
