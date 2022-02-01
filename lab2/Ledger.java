@@ -88,7 +88,7 @@ public class Ledger extends UserAmount{
 
 
     /** 
-     * Add a TxEntryList (txel, usually transaction outputs) to the current ledger
+     * Add an EntryList (txel, usually transaction outputs) to the current ledger
      *
      */    
 
